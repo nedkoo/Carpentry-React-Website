@@ -1,0 +1,120 @@
+.login {
+    box-sizing: border-box;
+    font: 16px/1.5 Verdana,serif;
+    max-width: 40rem;
+    margin: 4rem auto;
+
+}
+
+.login fieldset {
+    display: block;
+    border: 2px solid #999;
+    padding: 2rem;
+    border-radius: 0.3em;
+}
+
+.login fieldset p {
+    padding-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    text-align: right;
+
+}
+
+.login legend {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0 0.5rem;
+    margin-left: -0.5rem;
+
+
+}
+
+.login label {
+    display: block;
+    font-weight: bold;
+    padding-right: 1rem;
+    min-width: 10rem;
+
+}
+
+/*important*/
+.login input {
+    display: block;
+    width: 100%;
+    outline: none;
+}
+
+.login input[type='text'],
+.login input[type='password'],
+.login input[type='email'] {
+    padding: 0.5rem 1rem;
+    border: 2px solid #999999;
+}
+
+.login input[type='submit']{
+    padding: 0.5rem 1rem;
+    background: #369;
+    /*clagame border da ne podska4a*/
+    border: 2px solid #369;
+    color: white;
+    border-radius: 0.3rem;
+    margin-left: 10rem;
+    cursor: pointer;
+}
+
+.login input[type='submit']:hover {
+
+    background: white;
+    color: #369;
+    margin-left: 10rem;
+    align-items: center;
+}
+
+.login input[type='text']:hover,
+.login input[type='text']:focus,
+.login input[type='password']:hover,
+.login input[type='password']:focus,
+.login input[type='email']:hover ,
+.login input[type='email']:focus {
+
+    border-color: darkblue;
+}
+
+/*Make new class*/
+.login .field-icon {
+    display: flex;
+    align-items: stretch;
+}
+
+.login .field-icon label {
+    order:1;
+    min-width: auto;
+    background: #999999;
+    color: white;
+    padding: 0 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 0.3em;
+    border-bottom-left-radius: 0.3em;
+}
+
+.login .field-icon input {
+    order:2;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.login .field-icon label:nth-child(1):before {
+
+    display: block;
+    content: 'A';
+}
+
+.login .field-icon input:focus + label,
+.login .field-icon input:hover + label
+{
+    background: #336699;
+}
