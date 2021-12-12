@@ -1,0 +1,121 @@
+.register {
+    box-sizing: border-box;
+    font: 16px/1.5 Verdana,serif;
+    max-width: 40rem;
+    margin: 4rem auto;
+
+}
+
+.register fieldset {
+    display: block;
+    border: 2px solid #999;
+    padding: 2rem;
+    border-radius: 0.3em;
+}
+
+.register fieldset p {
+    padding-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    text-align: right;
+
+}
+
+.register legend {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 0 0.5rem;
+    margin-left: -0.5rem;
+
+
+}
+
+.register label {
+    display: block;
+    font-weight: bold;
+    padding-right: 1rem;
+    min-width: 10rem;
+
+}
+
+/*important*/
+.register input {
+    display: block;
+    width: 100%;
+    outline: none;
+}
+
+.register input[type='text'],
+.register input[type='password'],
+.register input[type='repassword'],
+.register input[type='email'] {
+    padding: 0.5rem 1rem;
+    border: 2px solid #999999;
+}
+
+.register input[type='submit']{
+    padding: 0.5rem 1rem;
+    background: #369;
+    /*clagame border da ne podska4a*/
+    border: 2px solid #369;
+    color: white;
+    border-radius: 0.3rem;
+    margin-left: 10rem;
+    cursor: pointer;
+}
+
+.register input[type='submit']:hover {
+
+    background: white;
+    color: #369;
+    margin-left: 10rem;
+    align-items: center;
+}
+
+.register input[type='text']:hover,
+.register input[type='text']:focus,
+.register input[type='password']:hover,
+.register input[type='password']:focus,
+.register input[type='email']:hover ,
+.register input[type='email']:focus {
+
+    border-color: darkblue;
+}
+
+/*Make new class*/
+.register .field-icon {
+    display: flex;
+    align-items: stretch;
+}
+
+.register .field-icon label {
+    order:1;
+    min-width: auto;
+    background: #999999;
+    color: white;
+    padding: 0 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 0.3em;
+    border-bottom-left-radius: 0.3em;
+}
+
+.register .field-icon input {
+    order:2;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.register .field-icon label:nth-child(1):before {
+
+    display: block;
+    content: 'A';
+}
+
+.register .field-icon input:focus + label,
+.register .field-icon input:hover + label
+{
+    background: #336699;
+}
