@@ -1,7 +1,17 @@
 import './Register.css'
 
+import * as authService from '../../services/authService'
+import { useState } from 'react';
+
+import { useAuthContext } from '../../contexts/AuthContex';
+import {useNavigate} from 'react-router-dom';
+
 
 const Register = () => {
+    // const navigate = useNavigate();
+    const { loginContex } = useAuthContext();
+
+    const [errors, setErrors] = useState({name:false})
 
     const onRegisterSubmit = (event) => {
         event.preventDefault();
@@ -13,15 +23,35 @@ const Register = () => {
         const password = formData.get('password').trim();
         const repassword = formData.get('repassword').trim();
 
-        console.log(email);
-        console.log(name);
-        console.log(password);
-        console.log(repassword);
+        if(password!==repassword){
+            setErrors(state => ({...state, name: 'Password and Repassword don\'t match'}));
+        }
+
+        // console.log(email);
+        // console.log(name);
+        // console.log(password);
+        // console.log(repassword);
+
+        authService.register(email, name, password)
+            .then((resAuth) => {
+                loginContex(resAuth); 
+                // navigate('/homepage')
+                // console.log(res)
+            })
+            .catch (err => {
+                console.log(err)
+             });
+
+
     }
 
     const nameHandler = (event) => {
         const name = event.target.value;
-        console.log(name);
+        if (!name) {
+            setErrors(state => ({...state, name: 'It\'s required'}));
+        } else {
+            setErrors(state => ({...state, name: false}));
+        }
     }
 
     return (
@@ -33,15 +63,15 @@ const Register = () => {
                 <label htmlFor="email"><span>Email</span></label>
             </p>
             <p className="field-icon">
-                <input type="text" name="name" id="name" placeholder="Nedko Yordanov"/>
+                <input type="text" name="name" id="name" placeholder="Nedko Yordanov" onBlur={nameHandler}/>
                 <label htmlFor="name"><span>Name</span></label>
             </p>
             <p className="field-icon">
-                <input type="password" name="password" id="password"/>
+                <input type="password" name="password" id="password" onBlur={nameHandler}/>
                 <label htmlFor="password"><span>Password</span></label>
             </p>
             <p className="field-icon">
-                <input type="repassword" name="repassword" id="repassword"/>
+                <input type="password" name="repassword" id="repassword" />
                 <label htmlFor="repassword"><span>Repass</span></label>
             </p>
             <p>

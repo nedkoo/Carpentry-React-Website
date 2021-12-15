@@ -1,0 +1,41 @@
+.logout {
+    display: flex;
+    width: 45rem;
+    flex-direction: column;
+    background-color: #ece9e9;
+    border-radius: 0.5em;
+    margin: 4rem auto;
+    padding-bottom: 3em;
+}
+
+.logout .card-content {
+    position: relative;
+    padding-left: 2em;
+}
+
+.logout .card-content h3 {
+    text-align: center;
+}
+
+.logout-buttons {
+    text-align: center;
+    /*margin: auto;*/
+    margin-top: 2em;
+}
+
+.logout-details {
+    cursor: pointer;
+    background-color: #369;
+    border-radius: 0.5em;
+    color: white;
+    margin-right: 3em;
+    padding: 11px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.logout-details:hover {
+    background-color: #3498db;
+}
