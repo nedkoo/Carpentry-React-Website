@@ -72,7 +72,7 @@ const Register = () => {
             </p>
             <p className="field-icon">
                 <input type="password" name="repassword" id="repassword" />
-                <label htmlFor="repassword"><span>Repass</span></label>
+                <label htmlFor="repassword"><span>Repassword</span></label>
             </p>
             <p>
                 <input className="field-icon" type="submit" value="Send it!"/>
