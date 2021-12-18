@@ -9,7 +9,7 @@ import './Logout.css'
 const Logout = () => {
     const { user, logoutContex } = useAuthContext();
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const LogoutClickHandler = (event) => {
         event.preventDefault();
@@ -19,7 +19,7 @@ const Logout = () => {
             .then(() => { 
                 logoutContex();
                 // console.log(res)
-                // navigate('/homepage')
+                navigate('/')
             })
             .catch (err => {
                 console.log(err.message)
@@ -28,7 +28,7 @@ const Logout = () => {
     
     const CancelClickHandler = (event) => {
         event.preventDefault();
-        // navigate('/homepage')
+        navigate('/')
         
     }
 

@@ -15,12 +15,14 @@ const Create = () => {
 
         let name = formData.get('name').trim();
         let description = formData.get('description').trim();
+        let price = formData.get('price').trim();
         let imageUrl = formData.get('imageUrl').trim();
         let category = formData.get('category').trim();
 
         carpentryService.create({
             name,
             description,
+            price,
             imageUrl,
             category,
         }, user.accessToken)

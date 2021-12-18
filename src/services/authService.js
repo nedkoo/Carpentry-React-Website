@@ -1,4 +1,4 @@
-import {post}  from '../services/helpService'
+import {post}  from './helpAuthService'
 
 const baseUrl = 'http://localhost:3030';
 

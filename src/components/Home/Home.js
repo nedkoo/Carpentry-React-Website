@@ -1,3 +1,4 @@
+import { Link} from 'react-router-dom';
 import './Home.css'
 
 const Home = () => {
@@ -10,10 +11,10 @@ const Home = () => {
                 </div>
                 <div className="entry-content">
                     <h3 className="entry-title">
-                        <a href="/some/valid/uri">Welcome to Wooden Toys</a>
+                        <Link to="/list?category=toy">Welcome to Wooden Toys</Link>
                     </h3>
                     <p className="entry-category">
-                        <a href="/some/valid/uri">Branding design</a>
+                        <Link to="/list?category=toy">Branding design</Link>
                     </p>
                     <p>Lots of play. Lots of style.</p>
                     <p>Step into the world of classic as well as trendy wooden toy brands. Every single product is
@@ -28,10 +29,10 @@ const Home = () => {
                 </div>
                 <div className="entry-content">
                     <h3 className="entry-title">
-                        <a href="/some/valid/uri">Welcome to Arts</a>
+                        <Link to="/list?category=art">Welcome to Arts</Link>
                     </h3>
                     <p className="entry-category">
-                        <a href="/some/valid/uri">Branding design</a>
+                        <Link to="/list?category=art">Branding design</Link>
                     </p>
                     <p>Discover the best Wood Carving Tools in Best Sellers.</p>
                     <p>Find the top 100 most popular items in Arts, Crafts & Sewing Best Sellers.</p>
@@ -45,10 +46,10 @@ const Home = () => {
                 </div>
                 <div className="entry-content">
                     <h3 className="entry-title">
-                        <a href="/some/valid/uri">Welcome to Furniture</a>
+                        <Link to="/list?category=furniture">Welcome to Furniture</Link>
                     </h3>
                     <p className="entry-category">
-                        <a href="/some/valid/uri">Branding design</a>
+                        <Link to="/list?category=furniture">Branding design</Link>
                     </p>
                     <p>Discover the best Wood Carving Tools in Best Sellers.</p>
                     <p>Find the top 100 most popular items in Arts, Crafts & Sewing Best Sellers.</p>

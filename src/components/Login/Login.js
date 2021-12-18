@@ -10,7 +10,7 @@ import './Login.css'
 const Login = () => {
     const { loginContex } = useAuthContext();
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const [errors, setErrors] = useState({name:false})
 
     const onLoginSubmit = (event) => {
@@ -25,7 +25,7 @@ const Login = () => {
             .then((resAuth) => { 
                 loginContex(resAuth);
                 // console.log(res)
-                // navigate('/homepage')
+                navigate('/')
             })
             .catch (err => {
                 setErrors(state => ({...state, name: `${err.message}`}));

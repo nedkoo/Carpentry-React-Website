@@ -8,7 +8,7 @@ import {useNavigate} from 'react-router-dom';
 
 
 const Register = () => {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const { loginContex } = useAuthContext();
 
     const [errors, setErrors] = useState({name:false})
@@ -35,7 +35,7 @@ const Register = () => {
         authService.register(email, name, password)
             .then((resAuth) => {
                 loginContex(resAuth); 
-                // navigate('/homepage')
+                navigate('/')
                 // console.log(res)
             })
             .catch (err => {
