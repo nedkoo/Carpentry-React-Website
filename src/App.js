@@ -13,6 +13,7 @@ import Register from './components/Register/Register';
 import Footer from './components/Footer';
 import CardDetail from './components/CardDetail';
 import Logout from './components/Logout/Logout';
+import About from './components/About/About';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
                             <Route path='/create' element={<Create />} />
                             <Route path='/edit/:carpentryId' element={<Edit />} />
                             <Route path='/list' element={<List />} />
+                            <Route path='/about' element={<About />} />
                         </Routes>
                        
 
