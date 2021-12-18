@@ -1,4 +1,4 @@
-import {post, get}  from '../services/helpService'
+import {post}  from '../services/helpService'
 
 const baseUrl = 'http://localhost:3030';
 

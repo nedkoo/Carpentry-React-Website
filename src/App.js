@@ -2,11 +2,11 @@ import { Routes, Route } from 'react-router-dom';
 
 import { AuthProvider } from './contexts/AuthContex'
 
-import Header from './components/Header';
+import Header from './components/Header/Header';
 import Media from './components/Media';
 import Home from './components/Home/Home';
 import OneCard from './components/OneCard';
-import Create from './components/Create';
+import Create from './components/Create/Create';
 import Edit from './components/Edit';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
@@ -29,6 +29,8 @@ function App() {
                             <Route path='/login' element={<Login />} />
                             <Route path='/register' element={<Register />} />
                             <Route path='/logout' element={<Logout />} />
+                            <Route path='/create' element={<Create />} />
+                            <Route path='/edit/:carpentryId' element={<Edit />} />
                         </Routes>
                         <div className="cards-layout masonry">
                             <h2>Layout Masonry</h2>
@@ -142,11 +144,7 @@ function App() {
                             </div>
                         </div>
 
-                        <Create />
-                        <Edit />
-                        <Login />
-                        <Register />
-                        <Logout />
+                        
                         <CardDetail />
 
 

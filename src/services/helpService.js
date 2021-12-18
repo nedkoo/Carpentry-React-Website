@@ -22,15 +22,14 @@ async function request(url,options){
     }
 }
 
-function getOptions(method='get',body){
+function getOptions(method='get',body,token){
 
     const options = {
         headers:{},
         method
     };
 
-    const token = localStorage.getItem('accessToken');
-
+    
     if(token!=null){
         options.headers['X-Authorization']=token;
     }
@@ -47,5 +46,9 @@ export async function post(url,data){
     return await request(url,getOptions('post',data));
 }
 
+
+export async function postUser(url,data,token){
+    return await request(url,getOptions('post',data,token));
+}
 
 
