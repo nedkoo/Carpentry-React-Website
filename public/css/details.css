@@ -58,6 +58,10 @@
     font-size: 16px;
 }
 
+.hidden {
+    display: none;
+}
+
 .button-details:hover {
     background-color: #3498db;
 }

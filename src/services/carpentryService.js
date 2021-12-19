@@ -1,4 +1,4 @@
-import {get, post, put}  from './helpCarpentryService'
+import {get, post, put, del}  from './helpCarpentryService'
 
 const baseUrl = 'http://localhost:3030/data';
 
@@ -21,3 +21,16 @@ export const getAllByCategory = async(category) => {
     console.log(result);
     return result;
 }
+
+
+export const getOne = async(carpentryId) => {
+    const result = await get(`${baseUrl}/carpentry/${carpentryId}`);
+    console.log(result);
+    return result;
+}
+
+export const deleteOne = async(carpentryId) => {
+    const result = await del(`${baseUrl}/carpentry/${carpentryId}`);
+    console.log(result);
+    return result;
+};

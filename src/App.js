@@ -11,7 +11,7 @@ import Edit from './components/Edit/Edit';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Footer from './components/Footer';
-import CardDetail from './components/CardDetail';
+import CardDetail from './components/Details/CardDetail';
 import Logout from './components/Logout/Logout';
 import About from './components/About/About';
 
@@ -33,14 +33,10 @@ function App() {
                             <Route path='/logout' element={<Logout />} />
                             <Route path='/create' element={<Create />} />
                             <Route path='/edit/:carpentryId' element={<Edit />} />
+                            <Route path='/details/:carpentryId' element={<CardDetail />} />
                             <Route path='/list' element={<List />} />
                             <Route path='/about' element={<About />} />
                         </Routes>
-                       
-
-                        
-                        <CardDetail />
-
 
                     </div>
                 </main>
