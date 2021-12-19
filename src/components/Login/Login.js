@@ -4,12 +4,13 @@ import * as authService from '../../services/authService'
 import { useState } from 'react';
 
 import { useAuthContext } from '../../contexts/AuthContex';
+import { useNotificationContext, types } from '../../contexts/NotificationContext';
 
 import './Login.css'
 
 const Login = () => {
     const { loginContex } = useAuthContext();
-
+    const { addNotification } = useNotificationContext();
     const navigate = useNavigate();
     const [errors, setErrors] = useState({name:false})
 
@@ -24,13 +25,14 @@ const Login = () => {
         authService.login(email, password)
             .then((resAuth) => { 
                 loginContex(resAuth);
+                addNotification('You logged in successfully', types.info);
                 // console.log(res)
                 navigate('/')
             })
             .catch (err => {
                 setErrors(state => ({...state, name: `${err.message}`}));
                 console.log(err.message)
-                
+                addNotification('Password or email does not match', types.error);
              });
     }
 

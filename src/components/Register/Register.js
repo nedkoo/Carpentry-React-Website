@@ -5,12 +5,13 @@ import { useState } from 'react';
 
 import { useAuthContext } from '../../contexts/AuthContex';
 import {useNavigate} from 'react-router-dom';
+import { useNotificationContext, types } from '../../contexts/NotificationContext';
 
 
 const Register = () => {
     const navigate = useNavigate();
     const { loginContex } = useAuthContext();
-
+    const { addNotification } = useNotificationContext();
     const [errors, setErrors] = useState({name:false})
 
     const onRegisterSubmit = (event) => {
@@ -36,10 +37,12 @@ const Register = () => {
             .then((resAuth) => {
                 loginContex(resAuth); 
                 navigate('/')
+                addNotification('Successfull register', types.info);
                 // console.log(res)
             })
             .catch (err => {
                 console.log(err)
+                addNotification('A user with the same email or name already exists', types.error);
              });
 
 

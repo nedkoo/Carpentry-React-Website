@@ -1,4 +1,12 @@
+import { useLocation } from 'react-router-dom'
+
+
 const Media = () => {
+    const location = useLocation()
+    console.log(location.pathname);
+    if (location.pathname != "/") {
+        return null
+    }    
     return (
         <section className="site-media"
                  style={{ 

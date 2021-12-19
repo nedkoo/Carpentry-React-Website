@@ -1,6 +1,7 @@
 import { useParams,useNavigate } from 'react-router-dom';
 import useCarpentryState from '../../hooks/useCarpentryState';
 import * as carpentryService from '../../services/carpentryService';
+import { useNotificationContext, types } from '../../contexts/NotificationContext';
 
 
 
@@ -13,7 +14,7 @@ const categories = [
 const Edit = () => {
 
     const navigate = useNavigate();
-
+    const { addNotification } = useNotificationContext();
     const { carpentryId } = useParams();
     const [carpentry] = useCarpentryState(carpentryId);
 
@@ -25,9 +26,11 @@ const Edit = () => {
         carpentryService.update(carpentryId, carpentryData)
             .then(result => {
                 navigate(`/details/${carpentry._id}`);
+                addNotification('You edit item successfully', types.info);
             })
             .catch(err => {
                 console.log(err)
+                addNotification('You can not edit this item', types.error);
             });;
     }
 

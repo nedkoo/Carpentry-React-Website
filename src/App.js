@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-
 import { AuthProvider } from './contexts/AuthContex'
-
+import { NotificationProvider } from './contexts/NotificationContext'
 import Header from './components/Header/Header';
 import Media from './components/Media';
 import Home from './components/Home/Home';
@@ -15,14 +14,20 @@ import CardDetail from './components/Details/CardDetail';
 import Logout from './components/Logout/Logout';
 import About from './components/About/About';
 import GuardedRoute from './components/Guards/GuardedRoute';
+import Notification from './components/Notification/Notification';
+
 
 
 function App() {
 
     return (
         <AuthProvider>
+            <NotificationProvider>
             <div className="site">
                 <Header />
+                
+                <Notification/>
+                
                 <Media />
                 <main className="site-content">
                     <div className="site-wrapper">
@@ -46,6 +51,7 @@ function App() {
                 </main>
                 <Footer />
             </div>
+            </NotificationProvider>
         </AuthProvider>
     );
 }

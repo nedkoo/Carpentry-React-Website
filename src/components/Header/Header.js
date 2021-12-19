@@ -27,7 +27,7 @@ const Header = () => {
         <header className="site-header">
             <div className="site-wrapper">
                 <h1 className="site-title">
-                    <Link to="/">Personal</Link>
+                    <Link to="/">Carpentry</Link>
                 </h1>
                 <nav className="site-nav">
                     <ul>

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import * as carpentryService from '../../services/carpentryService';
 import { useAuthContext } from '../../contexts/AuthContex';
+import { useNotificationContext, types } from '../../contexts/NotificationContext';
 
 
 
@@ -8,7 +9,7 @@ const Create = () => {
 
     const { user } = useAuthContext();
     const navigate = useNavigate();
-
+    const { addNotification } = useNotificationContext();
     const onCarpentryCreate = (e) => {
         e.preventDefault();
         let formData = new FormData(e.currentTarget);
@@ -28,9 +29,11 @@ const Create = () => {
         }, user.accessToken)
             .then(result => {
                 navigate('/');
+                addNotification('You create item successfully', types.info);
             })
             .catch (err => {
                 console.log(err)
+                addNotification('You can not create this item', types.error);
              });
     }
 

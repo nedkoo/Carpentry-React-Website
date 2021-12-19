@@ -1,0 +1,26 @@
+.note {
+    background: rgb(238, 238, 238);
+    max-width: 30em;
+    margin: auto;
+   
+}
+
+
+.notifications {
+   
+    text-align: center;
+    background: rgb(255, 255, 255);
+    padding: 10px;
+      
+   }
+
+.error {
+    color: red;
+    text-align: center;
+}
+
+
+.info {
+    color: blue;
+    text-align: center;
+}
