@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import CardDetail from './components/Details/CardDetail';
 import Logout from './components/Logout/Logout';
 import About from './components/About/About';
+import GuardedRoute from './components/Guards/GuardedRoute';
 
 
 function App() {
@@ -31,11 +32,14 @@ function App() {
                             <Route path='/login' element={<Login />} />
                             <Route path='/register' element={<Register />} />
                             <Route path='/logout' element={<Logout />} />
-                            <Route path='/create' element={<Create />} />
-                            <Route path='/edit/:carpentryId' element={<Edit />} />
                             <Route path='/details/:carpentryId' element={<CardDetail />} />
                             <Route path='/list' element={<List />} />
                             <Route path='/about' element={<About />} />
+
+                            <Route element={<GuardedRoute />}>
+                                <Route path='/create' element={<Create />} />   
+                                <Route path='/edit/:carpentryId' element={<Edit />} />
+                            </Route>
                         </Routes>
 
                     </div>
