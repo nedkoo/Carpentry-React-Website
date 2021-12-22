@@ -34,3 +34,12 @@ export const deleteOne = async(carpentryId) => {
     console.log(result);
     return result;
 };
+
+
+export const getAllByOwner = async(userId) => {
+    // let query = encodeURIComponent(`_ownerId IN ("${userId}")`);
+    let query = encodeURIComponent(`_ownerId ="${userId}"`);
+    const result = await get(`${baseUrl}/carpentry?where=${query}`);
+    console.log(result);
+    return result;
+}

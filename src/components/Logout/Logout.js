@@ -3,11 +3,15 @@ import {useNavigate} from 'react-router-dom';
 import * as authService from '../../services/authService'
 
 import { useAuthContext } from '../../contexts/AuthContex';
+import { useNotificationContext, types } from '../../contexts/NotificationContext';
+
 
 import './Logout.css'
 
 const Logout = () => {
+
     const { user, logoutContex } = useAuthContext();
+    const { addNotification } = useNotificationContext();
 
     const navigate = useNavigate();
 
@@ -22,7 +26,7 @@ const Logout = () => {
                 navigate('/')
             })
             .catch (err => {
-                console.log(err.message)
+                addNotification('Error', types.error);
              });
     }
     
@@ -39,8 +43,8 @@ const Logout = () => {
                     Are You Sure to Logout?
                 </h3>
                 <div className="logout-buttons">
-                    <a className="logout-details" href="#" onClick={LogoutClickHandler}>Yes</a>
-                    <a className="logout-details" href="#" onClick={CancelClickHandler}>Back</a>
+                    <a className="logout-details" href="/#" onClick={LogoutClickHandler}>Yes</a>
+                    <a className="logout-details" href="/#" onClick={CancelClickHandler}>Back</a>
                 </div>
             </div>
         </section>

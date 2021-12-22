@@ -2,20 +2,20 @@ import { Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContex'
 import { NotificationProvider } from './contexts/NotificationContext'
 import Header from './components/Header/Header';
-import Media from './components/Media';
+import Media from './components/Media/Media';
 import Home from './components/Home/Home';
 import List from './components/ListCarpentry/List'
 import Create from './components/Create/Create';
 import Edit from './components/Edit/Edit';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
-import Footer from './components/Footer';
+import Footer from './components/Footer/Footer';
 import CardDetail from './components/Details/CardDetail';
 import Logout from './components/Logout/Logout';
 import About from './components/About/About';
 import GuardedRoute from './components/Guards/GuardedRoute';
 import Notification from './components/Notification/Notification';
-
+import Profile from './components/Profile/Profile';
 
 
 function App() {
@@ -44,6 +44,7 @@ function App() {
                             <Route element={<GuardedRoute />}>
                                 <Route path='/create' element={<Create />} />   
                                 <Route path='/edit/:carpentryId' element={<Edit />} />
+                                <Route path='/profile' element={<Profile />} />
                             </Route>
                         </Routes>
 

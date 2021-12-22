@@ -7,7 +7,7 @@ function getOptions(method = 'get', body) {
         method
     };
 
-    if (method != 'get') {
+    if (method !== 'get') {
                
         options.headers['Content-type'] = 'application/json';
         options.body = JSON.stringify(body);

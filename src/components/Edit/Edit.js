@@ -3,6 +3,8 @@ import useCarpentryState from '../../hooks/useCarpentryState';
 import * as carpentryService from '../../services/carpentryService';
 import { useNotificationContext, types } from '../../contexts/NotificationContext';
 
+import './Edit.css'
+
 
 
 const categories = [
@@ -60,7 +62,7 @@ const Edit = () => {
                 </p>
                 <p>
                     <label htmlFor="category">Category</label>
-                    <select name="category" id="category" value={carpentry.category}>
+                    <select name="category" id="category" defaultValue={carpentry.category}>
                         {categories.map(x => <option key={x.value} value={x.value}>{x.text}</option>)}
                     </select>
                 </p>

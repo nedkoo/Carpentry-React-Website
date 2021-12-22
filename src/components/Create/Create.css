@@ -1,0 +1,106 @@
+.create {
+    box-sizing: border-box;
+    font: 16px/1.5 Verdana,serif;
+    max-width: 40rem;
+    margin: 4rem auto;
+
+
+
+}
+
+.create fieldset {
+    display: block;
+    border: 2px solid #999;
+    padding: 2rem;
+    border-radius: 0.2em;
+    background: #F8F8F8;
+}
+
+.create fieldset p {
+    position: relative;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+
+}
+
+
+
+.create legend {
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0.5rem 8rem 0.5rem 1rem;
+    margin: -42px;
+    border: 2px solid #999;
+    border-radius: 0.2em;
+    background: #F8F8F8;
+    border-bottom-left-radius: 0;
+
+
+}
+
+.create span {
+    position: relative;
+    display: inline-block;
+    top: 0;
+    left:20px;
+}
+
+.create label {
+    display: block;
+    font-weight: 900;
+    padding-right: 1em;
+}
+
+/*important*/
+.create input {
+    display: block;
+    width: 100%;
+    outline: none;
+
+}
+
+.create input[type='text'],
+.create input[type='password'] {
+    border-radius: 0.2em;
+    border: 0.1em solid #C2C2C2;
+}
+
+.create button {
+    padding: 0.5em 1.5em;
+    color: white;
+    background: black;
+    border-radius: 0.2em;
+    border: 1px solid black;
+    font-weight: 900;
+    margin-top: 1rem;
+}
+
+
+@media (max-width: 300px) {
+
+
+    .create fieldset p {
+        position: relative;
+    }
+}
+
+
+.create input[type='submit']{
+    padding: 0.5rem 1rem;
+    background: #369;
+    /*clagame border da ne podska4a*/
+    border: 2px solid #369;
+    color: white;
+    border-radius: 0.3rem;
+    margin-left: 10rem;
+    cursor: pointer;
+}
+
+.create input[type='submit']:hover {
+
+    background: white;
+    color: #369;
+    margin-left: 10rem;
+}

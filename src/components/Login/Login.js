@@ -1,7 +1,6 @@
 import {useNavigate} from 'react-router-dom';
 
 import * as authService from '../../services/authService'
-import { useState } from 'react';
 
 import { useAuthContext } from '../../contexts/AuthContex';
 import { useNotificationContext, types } from '../../contexts/NotificationContext';
@@ -12,7 +11,7 @@ const Login = () => {
     const { loginContex } = useAuthContext();
     const { addNotification } = useNotificationContext();
     const navigate = useNavigate();
-    const [errors, setErrors] = useState({name:false})
+    // const [errors, setErrors] = useState({name:false})
 
     const onLoginSubmit = (event) => {
         event.preventDefault();
@@ -30,8 +29,8 @@ const Login = () => {
                 navigate('/')
             })
             .catch (err => {
-                setErrors(state => ({...state, name: `${err.message}`}));
-                console.log(err.message)
+                // setErrors(state => ({...state, name: `${err.message}`}));
+                // console.log(err.message)
                 addNotification('Password or email does not match', types.error);
              });
     }
@@ -40,9 +39,7 @@ const Login = () => {
         const name = event.target.value;
 
         if (!name) {
-            setErrors(state => ({...state, name: 'It\'s required'}));
-        } else {
-            setErrors(state => ({...state, name: false}));
+            addNotification('It\'s required', types.info);
         }
     }
 

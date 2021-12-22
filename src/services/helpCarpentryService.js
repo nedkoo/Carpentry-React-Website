@@ -7,7 +7,7 @@ function getOptions(method = 'get', body) {
         method
     };
 
-    if (method != 'get') {
+    if (method !== 'get') {
 
         const token = getToken();
 

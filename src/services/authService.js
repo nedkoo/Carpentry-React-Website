@@ -17,7 +17,7 @@ export const register = async(email, name, password) => {
 
 export const logout = async (token) => {
 
-    const result = await fetch(`${baseUrl}/users/logout`, {
+    await fetch(`${baseUrl}/users/logout`, {
         headers: {
             'X-Authorization': token,
         }

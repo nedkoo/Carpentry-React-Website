@@ -3,7 +3,7 @@ import * as carpentryService from '../../services/carpentryService';
 import { useAuthContext } from '../../contexts/AuthContex';
 import { useNotificationContext, types } from '../../contexts/NotificationContext';
 
-
+import './Create.css'
 
 const Create = () => {
 
@@ -28,6 +28,7 @@ const Create = () => {
             category,
         }, user.accessToken)
             .then(result => {
+                console.log(result)
                 navigate('/');
                 addNotification('You create item successfully', types.info);
             })
@@ -37,34 +38,36 @@ const Create = () => {
              });
     }
 
+
+    
     return (
 <form className="create" onSubmit={onCarpentryCreate} method="POST">
                     <fieldset>
                         <legend>Create Form</legend>
                         <p>
                             <label htmlFor="name">Name</label>
-                            <input type="text" name="name" id="name" placeholder="Some art"/>
+                            <input type="text" name="name" id="name" placeholder="Some art" />
                         </p>
                         
                         <p>
                             <label htmlFor="description">Description</label>
                             <textarea name="description" id="description" cols="50"
-                                      rows="10"></textarea>
+                                      rows="10"/>
                         </p>
 
                         <p>
                             <label htmlFor="image">Image</label>
-                            <input type="text" name="imageUrl" id="image" placeholder='imageUrl'/>
+                            <input type="text" name="imageUrl" id="image" placeholder='imageUrl' />
                         </p>
 
                         <p>
                             <label htmlFor="price">Price</label>
-                            <input type="number" name="price" id="price"/>
+                            <input type="number" name="price" id="price" />
                         </p>
                         <p>
                             <label htmlFor="category">Category</label>
                             <select name="category" id="category">
-                                <option value="">Please select .....</option>
+                                <option value="toy">Please select .....</option>
                                 <option value="toy">Toys</option>
                                 <option value="art">Art</option>
                                 <option value="furniture">Furniture</option>

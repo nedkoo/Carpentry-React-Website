@@ -1,4 +1,4 @@
-import {get, post, put, del}  from './helpCarpentryService'
+import {get, post}  from './helpCarpentryService'
 
 const baseUrl = 'http://localhost:3030/data';
 

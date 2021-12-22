@@ -8,11 +8,15 @@ const Notification = () => {
     if (!notification.show) {
         return null;
     }
+    console.log(notification.type)
 
     return (
         <section className="note">
             <div id="error" className="notification">
-                <h3 className="error">{notification.message}</h3>
+                <h3 className={ notification.type==='error'
+                            ? 'error'
+                            : 'info'
+                        }>{notification.message}</h3>
             </div>
         </section>
     );

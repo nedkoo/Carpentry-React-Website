@@ -1,23 +1,19 @@
-import { useLocation } from 'react-router-dom';
 import { useState, useEffect, React } from 'react';
+import { useAuthContext } from '../../contexts/AuthContex';
 
 import * as carpentryService from '../../services/carpentryService';
 
-import OneCard from './CarpentryCard/OneCard';
+import OneItem from './OneItem/OneItem';
 
-import './CarpentryList.css'
+import './Profile.css'
 
-const List = () => {
+const Profile = () => {
+
+    const { user } = useAuthContext();
     const [carpentries, setCarpentries] = useState([]);
-
-    const search = useLocation().search;
-    const name = new URLSearchParams(search).get('category')
-    console.log(name)
-    // const { carpentryCatalog } = useParams();
-
-
+       
     useEffect(() => {
-        carpentryService.getAllByCategory(name)
+        carpentryService.getAllByOwner(user._id)
             .then(result => {
                 setCarpentries(result);
             })
@@ -32,10 +28,10 @@ const List = () => {
                 {carpentries.length > 0
                     ? (
                         <>
-                            {carpentries.map(x => <OneCard key={x._id} carpentry={x} />)}
+                            {carpentries.map(x => <OneItem key={x._id} carpentry={x} />)}
                         </>
                     )
-                    : <h2>No {name} in database!</h2>
+                    : <h2>No Items in database!</h2>
                 }
                
             </div>
@@ -45,5 +41,4 @@ const List = () => {
     );
 }
 
-
-export default List;
+export default Profile;

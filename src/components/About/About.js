@@ -28,7 +28,7 @@ const About = () => {
                     already offer their arts through our Website.
                 </li>
             </ul>
-            <p>To be considered for partnership, please email me at <a href="mailto:office@carpentry.bg"></a> and include:
+            <p>To be considered for partnership, please email me at <a href="mailto:office@carpentry.bg">Our email</a> and include:
             </p>
             <ul>
                 <li>a representative art</li>

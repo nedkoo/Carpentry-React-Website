@@ -1,10 +1,11 @@
 import { useLocation } from 'react-router-dom'
 
+import './Media.css'
 
 const Media = () => {
     const location = useLocation()
     console.log(location.pathname);
-    if (location.pathname != "/") {
+    if (location.pathname !== "/") {
         return null
     }    
     return (

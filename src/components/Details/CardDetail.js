@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 
 import useCarpentryState from '../../hooks/useCarpentryState';
@@ -9,12 +9,15 @@ import * as carpentryService from '../../services/carpentryService';
 
 import * as likeService from '../../services/likeService';
 
+import './CardDetail.css'
 
 const CardDetail = () => {
     const navigate = useNavigate();
+    
 
     const { carpentryId } = useParams();
     const [carpentry, setCarpentry] = useCarpentryState(carpentryId);
+    
     const { user } = useAuthContext();
 
     useEffect(() => {
@@ -48,11 +51,15 @@ const CardDetail = () => {
             return;
         }
 
-        if (carpentry.likes.includes(user._id)) {
-            alert('You cannot like again')
-            return;
+        if (carpentry.like) {
+            if (carpentry.likes.includes(user._id)) {
+                console.log(carpentry.likes)
+                alert('You cannot like again')
+                return;
+            }
         }
 
+        
         likeService.like(user._id, carpentryId)
             .then(() => {
                 setCarpentry(state => ({ ...state, likes: [...state.likes, user._id] }));
@@ -64,7 +71,7 @@ const CardDetail = () => {
     const ownerButtons = (
         <>
             <Link className="button-details" to={`/edit/${carpentry._id}`}>Edit</Link>
-            <a className="button-details" href="#" onClick={deleteHandler}>Delete</a>
+            <a className="button-details" href="/#" onClick={deleteHandler}>Delete</a>
         </>
     );
 
@@ -77,15 +84,18 @@ const CardDetail = () => {
                 <img src={carpentry.imageUrl} alt="detail" />
             </div>
             <div className="card-content">
-                <h3>
+                <h2>
                     {carpentry.name}
-                </h3>
+                </h2>
                 <p>
                     {carpentry.description}
                 </p>
-                <p className="liked">Liked {carpentry.likes?.length || 0}</p>
+                <h2>
+                    {carpentry.price} $
+                </h2>
+                <p className="liked">Likes {carpentry.likes?.length || 0}</p>
                 <div className="details-buttons">
-                    {user._id && (user._id == carpentry._ownerId
+                    {user._id && (user._id === carpentry._ownerId
                         ? ownerButtons
                         : userButtons
                     )}

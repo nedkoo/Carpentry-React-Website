@@ -1,7 +1,6 @@
 import './Register.css'
 
 import * as authService from '../../services/authService'
-import { useState } from 'react';
 
 import { useAuthContext } from '../../contexts/AuthContex';
 import {useNavigate} from 'react-router-dom';
@@ -12,7 +11,7 @@ const Register = () => {
     const navigate = useNavigate();
     const { loginContex } = useAuthContext();
     const { addNotification } = useNotificationContext();
-    const [errors, setErrors] = useState({name:false})
+    
 
     const onRegisterSubmit = (event) => {
         event.preventDefault();
@@ -25,7 +24,8 @@ const Register = () => {
         const repassword = formData.get('repassword').trim();
 
         if(password!==repassword){
-            setErrors(state => ({...state, name: 'Password and Repassword don\'t match'}));
+            
+            addNotification('Password and Repassword don\'t match', types.error);
         }
 
         // console.log(email);
@@ -41,8 +41,12 @@ const Register = () => {
                 // console.log(res)
             })
             .catch (err => {
-                console.log(err)
-                addNotification('A user with the same email or name already exists', types.error);
+                if (err.message==='Missing fields') {
+                    addNotification('A user with the same email or name already exists', types.error); 
+                } else {
+                    addNotification('A user with the same email or name already exists', types.error);
+                }
+                
              });
 
 
@@ -51,10 +55,10 @@ const Register = () => {
     const nameHandler = (event) => {
         const name = event.target.value;
         if (!name) {
-            setErrors(state => ({...state, name: 'It\'s required'}));
-        } else {
-            setErrors(state => ({...state, name: false}));
-        }
+            addNotification('It\'s required', types.info);
+            
+        }    
+        
     }
 
     return (
