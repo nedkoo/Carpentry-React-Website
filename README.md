@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Carpentry-React-Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Open source website for viewing carpentry arts, toys and furniture. This website is being built as my JS Web project in ReactJS Module, Software Engineering, Software University.This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
