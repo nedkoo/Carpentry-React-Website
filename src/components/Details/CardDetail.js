@@ -26,7 +26,7 @@ const CardDetail = () => {
                 setCarpentry(state => ({ ...state, likes }))
             })
             .catch(err=> {
-                console.log(err);
+                // console.log(err);
             })
     }, []);
 
