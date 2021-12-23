@@ -37,7 +37,7 @@ const Edit = () => {
     }
 
     return (
-        <form className="create" method="POST" onSubmit={carpentryEditSubmit}>
+        <form className="edit" method="POST" onSubmit={carpentryEditSubmit}>
             <fieldset>
                 <legend>Edit Form</legend>
                 <p>

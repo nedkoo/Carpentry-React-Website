@@ -42,9 +42,9 @@ const Register = () => {
             })
             .catch (err => {
                 if (err.message==='Missing fields') {
-                    addNotification('A user with the same email or name already exists', types.error); 
+                    addNotification('Missing fields', types.error); 
                 } else {
-                    addNotification('A user with the same email or name already exists', types.error);
+                    addNotification('A user with the same email already exists', types.error);
                 }
                 
              });
@@ -82,7 +82,7 @@ const Register = () => {
                 <label htmlFor="repassword"><span>Repassword</span></label>
             </p>
             <p>
-                <input className="field-icon" type="submit" value="Send it!"/>
+                <input className="field-icon" type="submit" value="Save it!"/>
             </p>
         </fieldset>
     </form>

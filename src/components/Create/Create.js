@@ -38,6 +38,14 @@ const Create = () => {
              });
     }
 
+    const nameChangeHandler = (e) => {
+        let currentName = e.target.value;
+        if (currentName.length < 3) {
+            addNotification ('Your name sould be at least 3 characters!', types.error);
+        } else if (currentName.length > 10) {
+            addNotification('Your name sould be max 10 characters!', types.error)
+        }
+    };
 
     
     return (
@@ -46,7 +54,7 @@ const Create = () => {
                         <legend>Create Form</legend>
                         <p>
                             <label htmlFor="name">Name</label>
-                            <input type="text" name="name" id="name" placeholder="Some art" />
+                            <input type="text" name="name" id="name" placeholder="Some art" onChange={nameChangeHandler} />
                         </p>
                         
                         <p>
@@ -74,7 +82,7 @@ const Create = () => {
                             </select>
                         </p>
                         <p>
-                          <input type="submit" value="Send it!"/>
+                          <input type="submit" value="Save it!"/>
                         </p>
                     </fieldset>
                 </form>
